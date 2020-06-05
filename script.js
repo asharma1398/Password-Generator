@@ -13,6 +13,7 @@ function generatePassword() {
 
   var possibleChar = [];
   var password = [];
+  var charIncluded = []
 
   // "prompt" the user to state desired password length - this prompt answer is of type 'string'
   var userLength = prompt("How many characters would you like your password to contain?");
@@ -43,15 +44,24 @@ function generatePassword() {
       else {
         if (usingUpper) {
           var possibleChar = possibleChar.concat(uppercase);
+          var upper = " Uppercase "
+          var charIncluded = charIncluded.concat(upper)
         }
         if (usingLower) {
           var possibleChar = possibleChar.concat(lowercase);
+          var lower = " Lowercase "
+          var charIncluded = charIncluded.concat(lower)
         }
         if (usingNumerical) {
           var possibleChar = possibleChar.concat(numerical);
+          var num = " Numerical "
+          var charIncluded = charIncluded.concat(num)
         }
         if (usingSpecial) {
           var possibleChar = possibleChar.concat(special);
+          var spec = " Special "
+          var charIncluded = charIncluded.concat(spec)
+          
         }
       }
     }
@@ -60,10 +70,11 @@ function generatePassword() {
   // create password by randomly pulling from possibleChar array  
   for (var i = 0; i < Number(userLength); i++) {
       var randomIndex = Math.floor(Math.random() * (possibleChar.length));
-      console.log((possibleChar[randomIndex] + " , " + String(randomIndex)))
       var password = password + possibleChar[randomIndex];
   }
 
+  // alert user of new password and filters used
+  alert("Your New Password: " + password + "\n\nPassword Length: " + userLength + "\nIncluded Characters:" + charIncluded)
 }
 
 // Write password to the #password input
@@ -75,15 +86,10 @@ function writePassword() {
 
 }
 
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
-// PASSWORD-GENERATOR LOGIC
-
-// then perform random generation of Password based on user length chosen
-// if the user does not hit OK to one of the following 4 character options, "alert" the user they must select one of the following characters to generate a password: special, numerical, lowercase, or upercase. 
-
-// display generated password as an alert or write it to the page 
 
 
