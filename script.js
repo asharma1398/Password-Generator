@@ -31,10 +31,10 @@ function generatePassword() {
     } 
     // user goes through four other password character options:
     else {
-      var usingUpper = confirm("Click OK to confirm including uppercase characters");
-      var usingLower = confirm("Click OK to confirm including lowercase characters");
-      var usingNumerical = confirm("Click OK to confirm including numerical characters");
-      var usingSpecial = confirm("Click OK to confirm including special characters");
+      var usingUpper = confirm("Click OK to confirm including uppercase characters\nClick CANCEL to exclude and continue");
+      var usingLower = confirm("Click OK to confirm including lowercase characters\nClick CANCEL to exclude and continue");
+      var usingNumerical = confirm("Click OK to confirm including numerical characters\nClick CANCEL to exclude and continue");
+      var usingSpecial = confirm("Click OK to confirm including special characters\nClick CANCEL to exclude and continue");
 
       // if the user doesn't select any of the four character types, "alert" the user with a selection error message
       if (usingUpper == false && usingLower == false && usingNumerical == false && usingSpecial == false) {
