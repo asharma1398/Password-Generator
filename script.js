@@ -6,12 +6,13 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword() {
 
   // all possible character options for password
-  var special = ['@', '%', '+', '', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
+  var special = ['@', '%', '+', '"', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
   var numerical = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
   var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
   var possibleChar = [];
+  var password = [];
 
   // "prompt" the user to state desired password length - this prompt answer is of type 'string'
   var userLength = prompt("How many characters would you like your password to contain?");
@@ -24,7 +25,7 @@ function generatePassword() {
   else {
     if (Number(userLength) < 8) {
       alert("Error: Password length must be at least 8 characters");
-    } else if (Number(userLength) >128) {
+    } else if (Number(userLength) > 128) {
       alert("Error: Password length must be no more than 128 characters");
     } 
     // user goes through four other password character options:
@@ -36,29 +37,33 @@ function generatePassword() {
 
       // if the user doesn't select any of the four character types, "alert" the user with a selection error message
       if (usingUpper == false && usingLower == false && usingNumerical == false && usingSpecial == false) {
-        alert("Error: At least one character type must be selected")
+        alert("Error: At least one character type must be selected");
       } 
       // concatenate the wanted character type(s) into possibleChar array
       else {
         if (usingUpper) {
-          var possibleChar = possibleChar.concat(uppercase)
+          var possibleChar = possibleChar.concat(uppercase);
         }
         if (usingLower) {
-          var possibleChar = possibleChar.concat(lowercase)
+          var possibleChar = possibleChar.concat(lowercase);
         }
         if (usingNumerical) {
-          var possibleChar = possibleChar.concat(numerical)
+          var possibleChar = possibleChar.concat(numerical);
         }
         if (usingSpecial) {
-          var possibleChar = possibleChar.concat(special)
+          var possibleChar = possibleChar.concat(special);
         }
       }
-      
-      
     }
   }
-
   
+  // create password by randomly pulling from possibleChar array  
+  for (var i = 0; i < Number(userLength); i++) {
+      var randomIndex = Math.floor(Math.random() * (possibleChar.length));
+      console.log((possibleChar[randomIndex] + " , " + String(randomIndex)))
+      var password = password + possibleChar[randomIndex];
+  }
+
 }
 
 // Write password to the #password input
