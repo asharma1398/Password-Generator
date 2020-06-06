@@ -1,8 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// write generatePassword function here 
-
+// function to generate password
 function generatePassword() {
 
   // all possible character options for password
@@ -20,14 +19,17 @@ function generatePassword() {
   
   // if the user inputs a value other than int (ex: letter, decimal, special character), "alert" the user with an input error message
   if ( Math.round(Number(userLength)) !== Number(userLength) ) {
-    alert("Error: Please enter an integer value");
+    return alert("Error: Please enter an integer value");
+     
   } 
   // if the user enters a number great than 128 or less than 8, "alert" the user with an input error message
   else {
     if (Number(userLength) < 8) {
-      alert("Error: Password length must be at least 8 characters");
+      return alert("Error: Password length must be at least 8 characters");
+      
     } else if (Number(userLength) > 128) {
-      alert("Error: Password length must be no more than 128 characters");
+      return alert("Error: Password length must be no more than 128 characters");
+      
     } 
     // user goes through four other password character options:
     else {
@@ -38,7 +40,8 @@ function generatePassword() {
 
       // if the user doesn't select any of the four character types, "alert" the user with a selection error message
       if (usingUpper == false && usingLower == false && usingNumerical == false && usingSpecial == false) {
-        alert("Error: At least one character type must be selected");
+        return alert("Error: At least one character type must be selected");
+        
       } 
       // concatenate the wanted character type(s) into possibleChar array
       else {
