@@ -78,6 +78,8 @@ function generatePassword() {
 
   // alert user of new password and filters used
   alert("Your New Password: " + password + "\n\nPassword Length: " + password.length + "\nIncluded Characters:" + charIncluded)
+
+  return password
 }
 
 // Write password to the #password input
