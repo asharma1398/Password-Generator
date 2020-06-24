@@ -9,7 +9,7 @@ body,
 .wrapper {
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding: 70px;
 }
 
 body {
@@ -74,7 +74,7 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color:hsl(36, 100%, 66%);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
